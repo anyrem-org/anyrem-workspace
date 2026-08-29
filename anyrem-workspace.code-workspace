@@ -8,6 +8,5 @@
   ],
   "settings": {
     "scm.alwaysShowRepositories": true,
-    "scm.repositories.selectionMode": "multiple",
   },
 }
