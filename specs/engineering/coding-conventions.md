@@ -29,6 +29,18 @@ Khi các tài liệu mâu thuẫn, feature specification và architecture decisi
 - Không thêm dependency, abstraction hoặc configuration mới nếu code, platform hoặc dependency hiện có đã đáp ứng nhu cầu.
 - Không dùng mock data cho luồng production khi backend/API thật đã thuộc scope.
 
+## File Endings
+
+- Mọi text file kết thúc bằng đúng một newline; không thêm dòng trống ở EOF.
+
+## Backend TypeScript / NestJS
+
+- Format mọi code mới hoặc thay đổi bằng Prettier trước khi hoàn tất.
+- Arrow callback dùng block body và `return` tường minh; luôn dùng braces cho `if` / `else`, kể cả khi chỉ có một statement.
+- Dùng một blank line giữa import groups, top-level declarations và các logical section. Không chèn blank line giữa các biến thuộc cùng một setup group. Trong controller/service, tách input/auth context, derived values, query/mutation, helper, guard return và response khi chúng là các bước riêng.
+- Group import theo thứ tự: external → common/infrastructure → module-local → type-only. Ưu tiên helper có tên cho logic không tầm thường; tránh conditional hoặc callback một dòng khó đọc.
+- Boolean dùng tiền tố `is` / `has` / `can`; handler nội bộ dùng `handle*`. Comment chỉ giải thích constraint hoặc intent, không lặp lại điều code hiển nhiên làm.
+
 ## Documentation Notice
 
 - Trước khi tạo hoặc sửa tài liệu, agent phải thông báo rõ `Docs: <relative-path> — <lý do>` trong cập nhật tiến độ.

@@ -1,0 +1,13 @@
+{
+  "folders": [
+    { "path": "." },
+    { "path": "repos/anyrem-be" },
+    { "path": "repos/anyrem-desktop" },
+    { "path": "repos/anyrem-infra" },
+    { "path": "repos/anyrem-mcp" },
+  ],
+  "settings": {
+    "scm.alwaysShowRepositories": true,
+    "scm.repositories.selectionMode": "multiple",
+  },
+}
