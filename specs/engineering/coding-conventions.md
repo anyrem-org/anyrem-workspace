@@ -35,6 +35,16 @@ Khi các tài liệu mâu thuẫn, feature specification và architecture decisi
 
 ## Backend TypeScript / NestJS
 
+### Prisma / PostgreSQL naming
+
+- **Table names:** `snake_case` plural qua `@@map` (ví dụ `@@map("note_categories")`).
+- **Column names:** `camelCase` trùng tên field Prisma, **không** dùng `@map` sang `snake_case` (ví dụ `userId`, `createdAt`, `showInGlobalSearch`).
+- Migration SQL phải quote tên cột camelCase: `"showInGlobalSearch"`, `"userId"`.
+- API JSON vẫn dùng `camelCase` theo `specs/api/conventions.md`; không map field DB sang tên khác ở wire contract.
+- Ngoại lệ legacy: `AvatarCatalog` (`avatars`) giữ `snake_case` column qua `@map` — không áp dụng pattern này cho model mới.
+
+### Code style
+
 - Format mọi code mới hoặc thay đổi bằng Prettier trước khi hoàn tất.
 - Arrow callback dùng block body và `return` tường minh; luôn dùng braces cho `if` / `else`, kể cả khi chỉ có một statement.
 - Dùng một blank line giữa import groups, top-level declarations và các logical section. Không chèn blank line giữa các biến thuộc cùng một setup group. Trong controller/service, tách input/auth context, derived values, query/mutation, helper, guard return và response khi chúng là các bước riêng.
