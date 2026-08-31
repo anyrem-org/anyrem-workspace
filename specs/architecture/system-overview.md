@@ -13,7 +13,7 @@
 | `repos/anyrem-desktop` | UI Electron desktop, preload/main process, renderer và tích hợp API cho desktop | Thay đổi hành vi desktop hoặc tích hợp API vào ứng dụng |
 | `repos/anyrem-be` | NestJS HTTP API, database, search indexing, jobs và OpenAPI contract được generate | Thay đổi business behavior, dữ liệu, quyền hoặc HTTP endpoint |
 | `repos/anyrem-mcp` | MCP server, tools và tích hợp API cho AI client | Thêm hoặc thay đổi MCP capability |
-| `repos/anyrem-infra` | Keycloak và cấu hình deployment/runtime | Thay đổi identity provider hoặc hạ tầng |
+| `repos/anyrem-infra` | Keycloak, script backup production (cron, restore) và cấu hình deployment/runtime | Thay đổi identity provider, backup/off-site storage hoặc hạ tầng |
 
 ## Source of Truth
 
