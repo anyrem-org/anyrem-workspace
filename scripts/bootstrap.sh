@@ -20,6 +20,7 @@ clone_repo() {
 
 mkdir -p "$repos_dir"
 
-clone_repo "soonio-api" "git@github.com:soonio-org/soonio-api.git"
-clone_repo "soonio-ext" "git@github.com:soonio-org/soonio-ext.git"
-clone_repo "soonio-web" "https://github.com/soonio-org/soonio-web.git"
+clone_repo "anyrem-desktop" "git@github.com:anyrem-org/anyrem-desktop.git"
+clone_repo "anyrem-be" "git@github.com:anyrem-org/anyrem-be.git"
+clone_repo "anyrem-mcp" "https://github.com/anyrem-org/anyrem-mcp.git"
+clone_repo "anyrem-infra" "https://github.com/anyrem-org/anyrem-infra.git"

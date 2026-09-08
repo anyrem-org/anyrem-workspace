@@ -1,33 +1,27 @@
-# Soonio Glossary
+# AnyRem Glossary
+
+## Terms
 
 | Term | Definition |
 | --- | --- |
-| Soonio | Sản phẩm theo dõi các mốc đến hạn, chi phí sắp phát sinh và hành động cần làm. |
-| User | Người sở hữu items, groups và notification settings cá nhân. |
-| Tracked item / Item | Đơn vị theo dõi chính, có name, type và due/renewal/expiry date; amount và group là optional. Chưa chốt tên field trên API. |
-| Type | Item là gì: subscription, trial, domain/SSL, credential rotation, warranty, contract hoặc deadline khác; enum cuối cùng còn mở. |
-| Group | Context tùy chỉnh như Work hoặc Personal; một cấp, optional, tối đa một group cho mỗi item. |
-| Due date / Deadline | Mốc cần hành động; quy tắc date-only, timezone và ngày quá hạn cần chốt trong contract. |
-| Renewal | Mốc gia hạn; không mặc nhiên đồng nghĩa với hệ thống thanh toán hoặc tự chuyển ngày. |
-| Expiry | Mốc hết hiệu lực của item. |
-| Amount / Currency | Giá trị tiền và loại tiền nếu có; quy tắc biểu diễn/tổng hợp còn mở. |
-| Billing cycle / Recurrence | Chu kỳ chi phí hoặc lặp lại; behavior cập nhật kỳ tiếp theo chưa chốt. |
-| Auto renew | Thông tin về gia hạn tự động của item; không phải yêu cầu Soonio thực hiện thanh toán. |
-| Upcoming | Items sắp đến hạn; khoảng thời gian cụ thể còn mở. |
-| Needs attention | Items cần người dùng chú ý trước; tiêu chí và thứ tự ưu tiên còn mở. |
-| Reminder schedule | Các mốc nhắc tương đối với deadline. |
-| Global default schedule | Lịch mặc định hiện tại của user, được item Default kế thừa động. |
-| Default | Mode dùng global schedule hiện tại, không chụp/copy lịch vào item. |
-| Custom | Mode dùng lịch riêng của item, không đổi theo global schedule. |
-| Disabled | Mode không gửi reminder cho item. |
-| Email notifications | Công tắc kênh toàn cục; Off chặn mọi email reminder, kể cả Custom, và giữ cấu hình lịch. |
-| Effective schedule | Lịch backend xác định từ mode của item và settings hiện tại; gửi còn phụ thuộc công tắc email. |
-| Reset to default | Chuyển item từ Custom về Default để kế thừa global schedule hiện tại. |
-| Quick capture | Thêm item từ Chrome bằng metadata tab hiện tại và thông tin user nhập. |
-| Provider | Dịch vụ/đơn vị gắn với item, dùng cho thông tin hiển thị; cách xác định còn mở. |
-| Web / PWA | Hai cách truy cập cùng ứng dụng và information architecture trong `soonio-web`; offline behavior chưa chốt. |
-| Shared UI | Components, primitives và theme tái sử dụng trong `soonio-shared`. |
-| API contract | Request/response và hành vi HTTP do `soonio-api` sở hữu. |
-| Workspace | Nơi chứa specifications, UI guidelines, conventions và ADR xuyên repository. |
-
-Policy chi tiết nằm tại [Notification Settings](../features/006-notification-settings/spec.md); thuật ngữ ở đây không định nghĩa wire format.
+| **AnyRem** | Personal memory app giúp người dùng ghi lại và tìm lại thông tin trong quá trình làm việc. |
+| **User** | Người sở hữu dữ liệu cá nhân trong AnyRem. Mọi note, category, search history và recap được tách theo user. |
+| **Note** | Đơn vị kiến thức chính người dùng lưu lại. Note có title, nội dung rich text, trạng thái pinned và có thể thuộc nhiều category. Trong UI có thể gọi là “memory”, nhưng tên domain và API chuẩn là `note`. |
+| **Quick Capture** | Hành động tạo note với số thao tác tối thiểu, thường từ Quick Create window hoặc màn hình tạo note. |
+| **Quick Access** | Các cửa sổ overlay nhẹ mở qua global shortcut, gồm Quick Search và Quick Create; không yêu cầu mở toàn bộ main window. |
+| **Quick Search** | Trải nghiệm tìm kiếm nhanh qua global shortcut hoặc overlay window. |
+| **Search** | Khả năng tìm note theo từ khoá và filter. Search là trải nghiệm trung tâm của sản phẩm, không phải công cụ quản trị dữ liệu. |
+| **Search History** | Danh sách từ khoá mà một user đã tìm, dùng để mở lại hoặc gợi ý truy vấn gần đây. |
+| **Category** | Cách tổ chức note nhẹ theo chủ đề. Một category thuộc một user; một note có thể thuộc nhiều category. |
+| **Related Note** | Note có ngữ cảnh liên quan tới note đang xem. Relation có thể do người dùng tạo hoặc do hệ thống xác định từ dữ liệu hiện có. |
+| **Pinned Note** | Note người dùng đánh dấu ưu tiên để dễ tìm hoặc hiển thị trước. |
+| **Inbox Item** | Mục cần xử lý nhanh trong inbox cá nhân, có thể đánh dấu hoàn thành. Inbox item không đồng nghĩa với note. |
+| **Daily Recap** | Bản tổng hợp note của một ngày theo múi giờ người dùng, dùng để nhắc lại kiến thức đã ghi. |
+| **Delivery** | Một lần gửi Daily Recap qua một provider, ví dụ email hoặc Telegram; có trạng thái gửi riêng. |
+| **Provider** | Kênh phân phối recap, hiện gồm email và Telegram. |
+| **Desktop** | Ứng dụng Electron dành cho người dùng cuối, thuộc repository `anyrem-desktop`. |
+| **Backend** | NestJS service xử lý business behavior, authorization, database, search và jobs, thuộc repository `anyrem-be`. |
+| **MCP** | Model Context Protocol server cung cấp tool AnyRem cho AI client, thuộc repository `anyrem-mcp`. |
+| **API Contract** | Quy ước request/response HTTP giữa backend và consumer. `anyrem-be` là owner duy nhất; OpenAPI được generate từ backend. |
+| **Workspace** | Repository `anyrem-workspace` chứa product specification, kiến trúc xuyên repository, convention và architecture decision. |
+| **Repository Owner** | Repository chịu trách nhiệm sửa code, test và technical documentation cho một capability. |

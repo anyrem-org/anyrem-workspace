@@ -1,51 +1,50 @@
-# Soonio Product Vision
+# AnyRem Product Vision
 
-## Purpose and Audience
+## Purpose
 
-Soonio là web app + PWA và Chrome extension giúp người dùng theo dõi subscription renewal, trial expiration, domain/SSL expiry, API token/credential rotation, warranty, contract và deadline khác. UI phù hợp phần lớn người dùng, không yêu cầu kiến thức kỹ thuật.
+AnyRem là personal memory app cho developer và knowledge worker. Sản phẩm giúp người dùng ghi lại thông tin xuất hiện trong lúc làm việc, sau đó tìm lại nhanh và tiếp tục đúng ngữ cảnh.
 
-Người dùng cần biết: cái gì sắp đến hạn, cái gì sắp tốn tiền, và cần hành động gì trước deadline.
+AnyRem không phải Notion clone hay công cụ quản lý dự án tổng quát. Giá trị cốt lõi là giảm nỗ lực để ghi nhớ và tìm lại kiến thức cá nhân.
 
-## Core Flow
+## Target Users
 
-1. Thêm tracked item từ web hoặc Chrome extension.
-2. Ghi due/renewal/expiry date, amount nếu có và reminder schedule.
-3. Xem upcoming items và những việc cần chú ý trước.
-4. Nhận email reminder trước deadline theo policy hiệu lực do backend xử lý.
-5. Hành động trước hạn và cập nhật item khi cần.
+Sản phẩm phục vụ người thường xuyên phải giữ nhiều thông tin ngắn hạn hoặc phân tán trong quá trình làm việc: developer, product/knowledge worker và người làm việc với tài liệu, ý tưởng, quyết định hoặc liên kết tham khảo.
 
-Chrome quick capture ưu tiên mở website → click extension → prefill title/domain/url → nhập date/price → save qua API.
+## Value Promise
 
-## MVP
+- Ghi lại thông tin ngay khi nó xuất hiện, không làm gián đoạn công việc.
+- Tìm lại note như tìm kiếm trên web: nhanh, rõ và theo đúng ngữ cảnh.
+- Nhìn thấy nội dung liên quan để tiếp tục công việc thay vì tự nhớ lại từ đầu.
+- Được nhắc lại những gì đã ghi qua daily recap để kiến thức không bị bỏ quên.
 
-- Authentication và dữ liệu cá nhân được phân quyền theo user.
-- Tracked item CRUD, detail/edit, search/filter/sort và All Items.
-- Dashboard / Upcoming với summary nhẹ.
-- Group tùy chỉnh, một cấp, optional; item thuộc tối đa một group.
-- Email reminders và Notification Settings global + per-item override.
-- Chrome quick capture; web và PWA dùng cùng information architecture.
+## Core Loop
+
+```text
+Đang làm việc
+→ ghi note nhanh
+→ lưu và tổ chức tối thiểu
+→ tìm lại bằng từ khoá
+→ mở note và nội dung liên quan
+→ nhận recap để ôn lại
+```
+
+Mọi feature nên hỗ trợ trực tiếp ít nhất một bước của core loop này.
 
 ## Product Principles
 
-- Ưu tiên thông tin cần hành động hơn analytics; không làm dashboard nhiều chart hoặc giống enterprise admin.
-- Mobile-first, ít bước, mỗi màn hình có primary action rõ ràng.
-- Progressive disclosure cho field nâng cao; không ép tổ chức dữ liệu sớm.
-- Reminder có default hợp lý; chỉ mở cấu hình riêng khi người dùng cần override.
-- Clarity quan trọng hơn density; accessibility và keyboard navigation là yêu cầu xuyên suốt.
-- Laravel là source of truth; client không quyết định business logic quan trọng.
+- Tốc độ capture và retrieval quan trọng hơn số lượng tính năng.
+- Search là trải nghiệm trung tâm, không phải màn hình phụ.
+- Organisation phải nhẹ: category, tag hoặc metadata chỉ được yêu cầu khi thực sự giúp người dùng tìm lại.
+- Nội dung liên quan cần giải thích được bằng ngữ cảnh hiện có trước khi thêm AI phức tạp.
+- Product ưu tiên dữ liệu và trải nghiệm đáng tin cậy trước khi thêm insight hoặc automation nâng cao.
+- Desktop-first: quick access, global shortcut và tray/background behavior phải giúp thao tác nhanh mà không mở toàn bộ ứng dụng.
 
-## Boundaries and Open Decisions
+## Product Boundaries
 
-Không đưa AI extraction, microservices, Kafka, Kubernetes hoặc kiến trúc phức tạp vào MVP. Notification MVP chỉ có email; Web Push và Telegram là hướng mở rộng.
-
-Recurrence, quy đổi/tổng hợp tiền tệ, tiêu chí Needs attention, ngày quá hạn, xóa group, auth flow và offline PWA cần được chốt trong feature spec trước implementation liên quan. Theo dõi credential rotation không mặc nhiên bao gồm lưu secret.
+- Không mở rộng thành workspace cộng tác, project management hoặc document suite tổng quát.
+- Không đưa AI summary, semantic search hoặc offline sync vào core scope trước khi capture, search và recap hoạt động ổn định.
+- Không để desktop hoặc MCP gọi trực tiếp search engine; mọi truy cập dữ liệu đi qua backend để bảo vệ quyền và dữ liệu người dùng.
 
 ## Success Direction
 
-Người dùng có thể thêm item nhanh, nhận ra việc cần làm tiếp theo và tin rằng reminder phản ánh đúng cấu hình hiện tại của mình.
-
-## Related Documents
-
-- [Glossary](glossary.md)
-- [UI guidelines](../design/ui-guidelines.md)
-- [System overview](../architecture/system-overview.md)
+Sản phẩm đi đúng hướng khi người dùng tin rằng: bất cứ điều gì đáng nhớ trong lúc làm việc đều có thể ghi lại ngay, và họ có thể tìm lại nó khi cần mà không phải nhớ chính xác đã lưu ở đâu.
